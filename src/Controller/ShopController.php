@@ -4,13 +4,14 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends AbstractController
 {
     /**
      * @param string $slug
      * @Route("/{slug}.html", name="product")
-     * @return string
+     * @return Response
      */
     public function product($slug)
     {
@@ -22,7 +23,7 @@ class ShopController extends AbstractController
     /**
      * @param string $slug
      * @Route("/{slug}", name="category")
-     * @return string
+     * @return Response
      */
     public function category($slug)
     {
