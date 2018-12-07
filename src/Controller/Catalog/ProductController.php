@@ -4,7 +4,6 @@ namespace App\Controller\Catalog;
 
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -24,7 +23,6 @@ class ProductController extends AbstractController
 
     /**
      * @param string $slug
-     * @Route("/{slug}.html", name="product")
      * @return Response
      */
     public function product($slug)
@@ -37,7 +35,6 @@ class ProductController extends AbstractController
 
     /**
      * @param string $slug
-     * @Route("/{slug}", name="category")
      * @return Response
      */
     public function category($slug)
