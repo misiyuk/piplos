@@ -6,6 +6,13 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <ul>
+        <li><a href="{{ path('home') }}">Главная</a></li>
+        <li>Категории
+            {{ render(controller('App\\Controller\\Catalog\\CategoryController::categories')) }}
+        </li>
+        <li><a href="{{ path('contacts') }}">Контакты</a></li>
+    </ul>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
