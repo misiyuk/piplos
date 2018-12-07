@@ -18,4 +18,19 @@ class ContactRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Contact::class);
     }
+
+    /**
+     * @param Contact $contact
+     * @throws \Exception
+     */
+    public function save(Contact $contact)
+    {
+        $em = $this->getEntityManager();
+        try {
+            $em->persist($contact);
+            $em->flush();
+        } catch (\Exception $e) {
+            throw new \Exception('Can\'t save contact');
+        }
+    }
 }

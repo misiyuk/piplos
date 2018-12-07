@@ -105,4 +105,16 @@ class Contact
 
         return $this;
     }
+
+    public static function create($name, $email, $subject, $body): self
+    {
+        $contact = new self();
+        $contact->name = $name;
+        $contact->email = $email;
+        $contact->subject = $subject;
+        $contact->body = $body;
+        $contact->created_at = new \DateTime('now');
+
+        return $contact;
+    }
 }

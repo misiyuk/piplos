@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Forms;
+namespace App\Entity\Forms;
 
 /**
  * Class Contact
@@ -11,7 +11,7 @@ namespace App\Forms;
  * @property string $subject
  * @property string $body
  */
-class Contact
+class ContactForm
 {
     protected $name;
     protected $email;
