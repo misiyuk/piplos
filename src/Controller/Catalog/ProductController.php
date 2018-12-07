@@ -2,12 +2,26 @@
 
 namespace App\Controller\Catalog;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class ProductController
+ * @package App\Controller\Catalog
+ *
+ * @property ProductRepository $repository
+ */
 class ProductController extends AbstractController
 {
+    private $repository;
+
+    public function __construct(ProductRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @param string $slug
      * @Route("/{slug}.html", name="product")
@@ -15,8 +29,9 @@ class ProductController extends AbstractController
      */
     public function product($slug)
     {
-        return $this->render('shop/product.html.twig', [
-            'product' => $slug,
+        $product = $this->repository->findOneBy(['slug' => $slug]);
+        return $this->render('catalog/product/product.html.twig', [
+            'product' => $product,
         ]);
     }
 
@@ -27,8 +42,9 @@ class ProductController extends AbstractController
      */
     public function category($slug)
     {
-        return $this->render('shop/category.html.twig', [
-            'category' => $slug,
+        $products = $this->repository->getProductsByCategory($slug);
+        return $this->render('catalog/product/category.html.twig', [
+            'products' => $products,
         ]);
     }
 }
