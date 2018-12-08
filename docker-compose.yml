@@ -11,7 +11,7 @@ services:
         image: node:10.10
         volumes:
             - ./:/var/www
-        working_dir: /var/www
+        working_dir: /var/www/frontend
         tty: true
     api-nginx:
         image: nginx:1.10
