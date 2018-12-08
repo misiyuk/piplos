@@ -1,0 +1,16 @@
+product:
+    path:   /{slug}.html
+    controller: App\Controller\Catalog\ProductController::product
+    methods: GET
+contacts:
+    path:   /contacts
+    controller: App\Controller\ContactController::index
+    methods: PUT
+categories:
+    path:   /categories
+    controller: App\Controller\Catalog\CategoryController::categories
+    methods: GET
+category:
+    path:   /{slug}
+    controller: App\Controller\Catalog\ProductController::category
+    methods: GET
